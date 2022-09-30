@@ -16,7 +16,7 @@ const students = studentsModel(sequelize, DataTypes);
 const teachers = teachersModel(sequelize, DataTypes);
 
 module.exports = {
-  db: sequelize,
+  database: sequelize,
   users: usersModel(sequelize, DataTypes),
   students: new DataInterface(students),
   teachers: new DataInterface(teachers),
