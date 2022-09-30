@@ -5,7 +5,7 @@ const authRouter = express.Router();
 
 const { users } = require('./models');
 const basicAuth = require('./middleware/basic');
-const bearerAuth = require('./middleware/bearer');
+const bearerAuth = require('./middleware/authbearer');
 const permissions = require('./middleware/acl');
 
 authRouter.post ('./signup', async (req, res, next) => {

@@ -7,7 +7,7 @@ const cors = require('cors');
 // Routes Resources
 const errorHandler = require('./error-handlers/500');
 const notFound = require('./error-handlers/404');
-const authRoutes = require('./auth/routes/auth-routes');
+const authRoutes = require('./auth/auth-routes');
 const v2Routes = require('./auth/routes/v2');
 
 
