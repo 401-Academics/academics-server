@@ -1,9 +1,11 @@
 'use strict';
 
-module.exports = function(req, res, next) {
+module.exports = function(err, req, res, next) {
+  const error = err.message ? err.message : err;
+
   const errorObject = {
     status: 404,
-    message: 'Sorry, Not Found',
+    message: error,
   };
   res.status(404).json(errorObject);
 };
