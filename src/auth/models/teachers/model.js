@@ -1,6 +1,6 @@
 'use strict';
 
-const teachersModel = (sequelize, DataTypes) => sequelize.define('students', {
+const teachersModel = (sequelize, DataTypes) => sequelize.define('teachers', {
   name: {type: DataTypes.STRING, required: true },
   phone: {type: DataTypes.INTEGER, required: true},
   address: {type: DataTypes.STRING, required: true },

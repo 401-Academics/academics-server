@@ -1,5 +1,5 @@
 {
-  "name": "auth-demo",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,8 @@
     "test": "NODE_ENV=test jest --verbose --coverage",
     "test-watch": "NODE_ENV=test jest --watchAll --verbose --coverage",
     "db:config": "sequelize init:config",
-    "db:create": "sequelize db:create"
+    "db:create": "sequelize db:create",
+    "watch": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,5 @@
     "sequelize-cli": "^6.4.1",
     "sqlite3": "^5.1.1",
     "supertest": "^6.2.4"
-  },
-  "devDependencies": {}
+  }
 }
