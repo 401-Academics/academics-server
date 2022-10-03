@@ -7,7 +7,7 @@ const studentsModel = (sequelize, DataTypes) => sequelize.define('students', {
   phone: {type: DataTypes.INTEGER },
   address: {type: DataTypes.STRING, required: true},
   classes: {type: DataTypes.ENUM('Math', 'History', 'Science', 'Phys-Ed', 'English')},
-
+  teacherId: {type: DataTypes.INTEGER},
 });
 
 module.exports = studentsModel;

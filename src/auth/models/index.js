@@ -13,8 +13,8 @@ const sequelize = new Sequelize(DATABASE_URL);
 const students = studentsModel(sequelize, DataTypes);
 const teachers = teachersModel(sequelize, DataTypes);
 
-// teachers.hasMany(students);
-// students.belongsTo(teachers);
+teachers.hasMany(students);
+students.belongsTo(teachers);
 
 module.exports = {
   db: sequelize,
