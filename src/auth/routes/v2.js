@@ -2,10 +2,20 @@
 
 const express = require('express');
 const dataModule = require('../models/index');
+const { students, teachers } = require('../models/index');
 const bearerAuthorization = require('../middleware/authbearer');
 const userPermissions = require('../middleware/acl');
 
 const router = express.Router();
+
+router.get('/teacherRoster/:id', bearerAuthorization, async (req, res, next) => {
+  let { id } = req.params;
+
+  let teacherRoster = await teachers.readManyToOne(id, students.model);
+
+  console.log(teacherRoster.students);
+  res.status(200).send(teacherRoster);
+});
 
 router.param('model', (req, res, next) => {
   const modelName = req.params.model;

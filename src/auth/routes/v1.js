@@ -1,9 +1,19 @@
 'use strict';
 
 const express = require('express');
+const { students, teachers } = require('../models/index');
 const dataModule = require('../models/index');
 
 const router = express.Router();
+
+router.get('/teacherRoster/:id', async (req, res, next) => {
+  let { id } = req.params;
+
+  let teacherRoster = await teachers.readManyToOne(id, students.model);
+
+  console.log(teacherRoster.students);
+  res.status(200).send(teacherRoster);
+});
 
 router.param('model', (req, res, next) => {
   const modelName = req.params.model;
@@ -21,6 +31,8 @@ router.get('/:model/:id', handleGetOne);
 router.post('/:model', handleCreate);
 router.put('/:model/:id', handleUpdate);
 router.delete('/:model/:id', handleDelete);
+
+
 
 async function handleGetAll(req, res) {
   let allRecords = await req.model.get();
