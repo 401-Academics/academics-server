@@ -8,7 +8,13 @@ const DataInterface = require('./data-interface');
 
 const DATABASE_URL = process.env.DATABASE_URL || 'sqlite::memory';
 
-const sequelize = new Sequelize(DATABASE_URL);
+const sequelize = new Sequelize(DATABASE_URL, {
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  }});
 
 const students = studentsModel(sequelize, DataTypes);
 const teachers = teachersModel(sequelize, DataTypes);
